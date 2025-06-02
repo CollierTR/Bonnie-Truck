@@ -1,7 +1,7 @@
 import { k } from "../main";
 
 export default function splash() {
-	k.setBackground("#000000");
+	k.setBackground("000000");
 
     k.add([
         k.sprite("bobby"),
@@ -12,7 +12,7 @@ export default function splash() {
 
 	k.add([
 		k.text("Bobby Basil Studios", { size: 70 }),
-		k.color("449d34 s"),
+		k.color("449d34"),
 		k.pos(k.center().x, 500),
 		k.anchor("center"),
 	]);
