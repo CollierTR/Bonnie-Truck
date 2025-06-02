@@ -1,4 +1,4 @@
-import { renderTruck } from "../entities/truck";
+import { renderTruck, truckIsAlive } from "../entities/truck";
 import { k } from "../main";
 import { renderObject } from "./object";
 
@@ -7,10 +7,30 @@ const cityScale = 2.5;
 const roadWidth = 1080;
 const roadScale = 0.8;
 const roadHeight = 480;
-const gameSpeed = 100;
+let gameSpeed = 100;
 export let roadSpeed = 300;
+export let count = 0;
+
+export function setCount() {
+	count = 0;
+}
+
+export function resetRoadSpeed() {
+	roadSpeed = 300;
+}
 
 export default function level1() {
+	// k.setLayers(
+	// 	[
+	// 		"background", // Lowest z-index
+	// 		"road",
+	// 		"objects",
+	// 		"truck", // Highest z-index
+	// 	],
+	// 	"background"
+	// );
+
+
 	const cityFrames = [
 		k.add([k.sprite("city"), k.scale(cityScale), k.pos()]),
 		k.add([
@@ -34,7 +54,6 @@ export default function level1() {
 		]),
 	];
 
-	let count = 0;
 	const counter = k.add([
 		k.text("294", { size: 35 }),
 		pos(30, 30),
@@ -67,16 +86,12 @@ export default function level1() {
 		roadFrames[2].move(-roadSpeed, 0);
 	});
 
+	// let truckSound = k.play("truck", { loop: true, volume: 0.1, detune: -200 })
+
 	k.loop(1, () => {
 		count++;
 		counter.text = count;
-        roadSpeed += 4;
+		roadSpeed += 6;
 		if (count % 2 === 0) renderObject(roadSpeed);
-		// if (count > 10 && roadSpeed <= 400) {
-		// 	roadSpeed += 5;
-		// }
-		// if (count > 40 && roadSpeed <= 500) {
-		// 	roadSpeed += 5;
-		// }
 	});
 }

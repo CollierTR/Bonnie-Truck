@@ -13,6 +13,7 @@ export function renderObject(roadSpeed) {
         k.area({ shape: new Polygon([vec2(280, 20), vec2(280, 120), vec2(-100, 120), vec2(-100, 20)]) }),
         k.anchor("center"),
         k.pos(1030 ,lanePlacement[Math.floor(Math.random()*3)]),
+        k.layer("objects"),
     ])
 
     k.onUpdate(() => {
