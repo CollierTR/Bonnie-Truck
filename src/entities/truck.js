@@ -20,12 +20,12 @@ export function renderTruck(pos, playSound = true) {
 	]);
 
 	truck.onKeyPressRepeat("down", () => {
-		truck.pos.y <= 705 && truck.moveBy(0, 5);
+		truck.pos.y <= 705 && truck.moveBy(0, 6);
 		console.log(truck.pos.y);
 	});
 
 	truck.onKeyPressRepeat("up", () => {
-		truck.pos.y >= 555 && truck.moveBy(0, -5);
+		truck.pos.y >= 555 && truck.moveBy(0, -6);
 		console.log(truck.pos.y);
 	});
 
